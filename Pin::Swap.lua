@@ -166,9 +166,9 @@ function _Class:setPin(level)
   end
 end
 
-function _Class:swapPin()
+function _Class:swapPin(force)
 
-  if self.swap ~= nil and  self.cnt >= self.swap then
+  if not force and self.swap ~= nil and  self.cnt >= self.swap then
     self.time.stop = { node.uptime() }
     self.tmr:stop()
     self:_tmr_single_out()
